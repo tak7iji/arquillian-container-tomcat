@@ -36,6 +36,7 @@ import org.jboss.shrinkwrap.descriptor.api.Descriptor;
  * </p>
  *
  *
+ * @author <a href="mailto:tak7iji@gmail.com">Eiji Takahashi</a>
  * @author <a href="mailto:kpiwko@redhat.com">Karel Piwko</a>
  * @author <a href="mailto:ozizka@redhat.com">Ondrej Zizka</a>
  * @version $Revision: $
@@ -47,7 +48,7 @@ public class TomcatRemoteContainer implements DeployableContainer<TomcatRemoteCo
     */
    private TomcatRemoteConfiguration configuration;
 
-   private Tomcat7Manager<TomcatRemoteConfiguration> manager;
+   private TomcatManager manager;
 
    public Class<TomcatRemoteConfiguration> getConfigurationClass()
    {
@@ -63,7 +64,7 @@ public class TomcatRemoteContainer implements DeployableContainer<TomcatRemoteCo
    public void setup(TomcatRemoteConfiguration configuration)
    {
       this.configuration = configuration;
-      this.manager = new Tomcat7Manager<TomcatRemoteConfiguration>(configuration);
+      this.manager = new TomcatManager(configuration);
    }
 
    @Override
